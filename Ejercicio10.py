@@ -10,22 +10,29 @@ una torre, e indique cuál pieza captura a la otra:
 """
 tablero=""
 
-def datos():
-
-    fila_torre=int(input("Ingrese la fila en la que se encuentra la torre: "))
-    columna_torre=int(input("Ingrese la columna en la que se encuentra la torre: "))
-
-    fila_alfil=int(input("Ingrese la fila en la que se encuentra el alfil: "))
-    columna_alfil=int(input("Ingrese la columna en la que se encuentra el alfil: "))
+fila_torre=int(input("Ingrese la fila en la que se encuentra la torre: "))
+columna_torre=int(input("Ingrese la columna en la que se encuentra la torre: "))
+fila_alfil=int(input("Ingrese la fila en la que se encuentra el alfil: "))
+columna_alfil=int(input("Ingrese la columna en la que se encuentra el alfil: "))
 
 
 
 
-if(columna_torre == columna_alfil or fila_torre == fila_alfil):
+
+
+if( columna_torre == columna_alfil  or fila_torre == fila_alfil):
+    
     print("gana torre")
+
+
 for i in range(8):
     for j in range(8):
-        tablero+="("f"{i}" + f" {j}"")"
+        if(i == columna_torre and j == fila_torre):
+            tablero+="("f"torre"")"
+        if(i == columna_alfil and j == fila_alfil):
+            tablero+="("f"alfil"")"
+        else:
+            tablero+="("f"{i}" + f" {j}"")"
 
     tablero+="\n"
     
