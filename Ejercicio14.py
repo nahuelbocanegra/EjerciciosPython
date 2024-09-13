@@ -27,14 +27,17 @@ signos = {
 }
 
 def determinar_signo(fecha):
-    for j in signos.values():
-            if(j[0][0]== fecha[1]):
-                print(list(signos.keys()))[11]
+    for i in range(1,13):
+        for j,x in signos.items():
+            print(j)
+
+
 
     
 
 
-determinar_signo((1997,11,30))
+
+print(determinar_signo((1997,11,15)))
 
 
 

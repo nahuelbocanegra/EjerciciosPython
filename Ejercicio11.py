@@ -11,48 +11,39 @@ rondas. Los jugadores deben indicar su jugada escribiendo tijera, papel o piedra
 marcador1=0
 marcador2=0
 
-def jugada(jugador1,jugador2,marcador1,marcador2):
+def jugada(jugador1,jugador2):
     if(jugador1 == jugador2):
-        return f"marcador {marcador1} - {marcador2}"
-    if(jugador1 == "piedra" and jugador2 == "tijera"):
-        marcador1 += 1
-        return f"marcador {marcador1} - {marcador2}"
-    elif( jugador1 == "tijera" and jugador2 == "piedra" ):
-        marcador2 += 1
-        return f"marcador {marcador1} - {marcador2}"
-    elif(jugador1 == "papel" and jugador2 == "piedra"):
-        marcador2 += 1
-        return f"marcador {marcador1} - {marcador2}"
-    elif(jugador1 == "piedra" and jugador2 == "papel"):
-        marcador1 += 1
-        return f"marcador {marcador1} - {marcador2}"
-    elif(jugador1 == "tijera" and jugador2 == "papel"):
-        marcador1 += 1
-        return f"marcador {marcador1} - {marcador2}"
-    elif(jugador1 == "papel" and jugador2 == "tijera"):
-        marcador2 += 1
-        return f"marcador {marcador1} - {marcador2}"
+        return "empate"
+    if((jugador1 == "piedra" and jugador2 == "tijera") or \
+        (jugador1 == "papel" and jugador2 == "piedra") or \
+        (jugador1 == "tijera" and jugador2 == "papel")):
+        return "jugador1" 
+    else:
+        return "jugador2" 
 
+    
 
 
 print("juego de piedra papel o tijera")
 
 
-while marcador1 <= 3 or marcador2 <= 3:
+while marcador1 < 3 and marcador2 < 3 :
 
-    jugador1=input("elegir entre piedra , papel o tijera: ").lower()
-    jugador2=input("elegir entre piedra , papel o tijera: ").lower()
+    jugador1=input("Jugador1 elegir entre piedra , papel o tijera: ").lower()
+    jugador2=input("Jugador2 elegir entre piedra , papel o tijera: ").lower()
     print(f"Jugador1= {jugador1}")
     print(f"Jugador2= {jugador2}")
 
-    print(jugada(jugador1,jugador2,marcador1,marcador2))
-    print(marcador1,marcador2)
+    partida=jugada(jugador1,jugador2)
+    if(partida == "jugador1"):
+        marcador1+=1
+    elif(partida == "jugador2"):
+        marcador2+=1
+    
+    print(f"{marcador1} - {marcador2}")
 
 
-
-
-
-
+    
 
 
 
